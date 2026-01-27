@@ -13,10 +13,12 @@
     overflow-x: hidden;
     color: #4a235a;
   }
+
   header { text-align:center; padding:60px 20px 40px; }
   header h1 { font-size: clamp(2.2rem,5vw,3rem); margin-bottom:10px; animation: popIn 1s ease-out; }
   header p { font-size: clamp(1rem,3.5vw,1.2rem); opacity:0.9; }
   @keyframes popIn {0%{transform:scale(0.7);opacity:0;}100%{transform:scale(1);opacity:1;}}
+
   .container { max-width:1000px; margin:auto; padding:20px; display:grid; gap:24px; }
 
   .card {
@@ -31,15 +33,17 @@
   .card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 20px 35px rgba(0,0,0,0.18); }
   .card h2 { margin-top:0; font-size:clamp(1.2rem,4vw,1.5rem); }
 
-  .btn { margin-top:15px; padding:12px 22px; border:none; border-radius:999px;
-         background: linear-gradient(135deg, #ff6fae, #9b5de5); color:white;
-         font-size:1rem; cursor:pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .btn {
+    margin-top:15px; padding:12px 22px; border:none; border-radius:999px;
+    background: linear-gradient(135deg, #ff6fae, #9b5de5); color:white;
+    font-size:1rem; cursor:pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
   .btn:hover { transform: scale(1.05); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
 
   .hidden-msg { margin-top:15px; max-height:0; overflow:hidden; opacity:0; transition:max-height 0.5s ease, opacity 0.4s ease; }
-  .hidden-msg.show { max-height:1000px; opacity:1; }
+  .hidden-msg.show { max-height:2000px; opacity:1; }
 
-  .letter.show { overflow-y:auto; padding-right:10px; max-height:400px; text-align:left; line-height:1.7; }
+  .letter.show { overflow-y:auto; padding-right:10px; max-height:500px; text-align:left; line-height:1.7; }
   .letter::-webkit-scrollbar { width:6px; }
   .letter::-webkit-scrollbar-thumb { background:#d48cff; border-radius:10px; }
   .letter::-webkit-scrollbar-track { background:transparent; }
@@ -74,6 +78,7 @@
     100% { box-shadow: 0 0 8px #ff6fae, 0 0 12px #ff6fae50; transform: scale(1); }
   }
 
+  /* Sparkles on Yes button */
   .sparkles {
     position: absolute;
     top: 50%;
@@ -114,38 +119,38 @@
 
 <!-- Interactive question -->
 <section class="container">
-  <div class="card" style="grid-column:1/-1; text-align:center; padding:60px; position:relative;">
+  <div class="card question-card" style="grid-column:1/-1; text-align:center; padding:60px; position:relative;">
     <p style="font-size:1.2rem; font-weight:600; margin-bottom:20px;">Will you always be mine? 💖</p>
     <button class="btn yes-btn magical-btn">Yes</button>
     <button class="btn no-btn">No</button>
     <div class="sparkles"></div>
-    <p class="secret-msg" style="display:none; margin-top:20px; font-weight:600; color:#ff6fae; font-size:1rem;">
-      Yay! You said yes! ❤️ Now let’s continue…
-    </p>
+    <div class="message-popup" style="margin-top:20px; font-weight:600; color:#ff1a75; font-size:1rem;"></div>
   </div>
 </section>
 
 <!-- Hidden letters/cards -->
 <section class="container cards-container" style="display:none; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:24px;">
+
   <!-- Birthday Letter -->
   <div class="card" style="grid-column:1/-1;">
     <h2>Happy 22nd Birthday, My Love 🎂💖</h2>
-    <p>This one is special. Take your time reading it…</p>
+    <p>This one is special. Take your time reading it.</p>
     <button class="btn" onclick="toggleMsg(this)">Open Letter</button>
     <div class="hidden-msg letter" style="margin-top:10px;">
-      <p>Happy 22nd birthday, my love! Today is all about you, and I hope you feel how much you are cherished and adored. Every moment with you has been a gift, and I want you to know that my heart is so full of gratitude for having you in my life.</p>
-      <p>From our quiet evenings just talking to the endless laughter during our adventures, every memory we’ve shared is a treasure I will hold forever. You bring so much light, warmth, and joy into my world, and your presence makes everything feel brighter and more beautiful.</p>
-      <p>I admire the way you face life with courage and kindness. Your strength inspires me, your laughter lifts me, and your love makes me feel complete. I am in awe of the person you are becoming, and I feel so proud to walk beside you through every step of life.</p>
-      <p>Life may not always be perfect, and there will be moments when things feel uncertain or challenging. But please know this — whatever comes our way, I will always be by your side. You will never face anything alone, because I choose you, every day, in every way.</p>
-      <p>As you turn 22, I wish for your heart to overflow with happiness, for your dreams to grow bigger than you ever imagined, and for your days to be filled with laughter, love, and little moments that make life magical. Keep believing in yourself, keep chasing what makes you shine, and always remember how deeply you are loved.</p>
-      <p>Thank you for being you — for your warmth, your compassion, your humor, and your love. Thank you for letting me be part of your life, and for letting me love you in return. There is no greater joy than seeing you happy and knowing I can be there for you through it all.</p>
-      <p>Every day with you is a blessing, and I look forward to making countless more memories together. From the smallest shared smiles to the biggest adventures, I want to experience every moment of life with you. You are my heart, my safe haven, and my favorite person in the world.</p>
-      <p>So here’s to you on your special day: may it be filled with love, laughter, surprises, and all the things that make your heart sing. You deserve the world, and I hope this year brings you everything you’ve ever wished for and more.</p>
-      <p style="margin-top:25px;"><strong>With all my love,</strong><br/>Your always 🤍</p>
+      <p>Happy 22nd birthday, my love.</p>
+      <p>I just want you to know how incredibly grateful I am to have you in my life. From the quiet moments to the loud, joyful ones, every second spent with you means more to me than I can ever fully explain. You are not just someone I love—you are someone I feel safe with, someone I trust, and someone I choose every single day.</p>
+      <p>Life isn’t always easy, and I know it never promises smooth roads. But no matter what life throws at us—good days, bad days, or days when everything feels uncertain—please believe this: you will never face it alone. You have me by your side, cheering you on, holding your hand, and standing with you through it all.</p>
+      <p>I admire your strength, your kindness, and the way you continue to grow into the person you are becoming. Watching you chase your dreams, overcome challenges, and stay true to who you are makes me so proud. You inspire me more than you know.</p>
+      <p>As you turn 22, I hope this year brings you peace, happiness, and opportunities that make your heart feel full. I hope you continue to laugh freely, love deeply, and believe in yourself—even on days when it feels hard. And I hope you never forget that you are deeply loved, not just today, but always.</p>
+      <p>Thank you for being you, for loving me the way you do, and for letting me love you in return. Happy birthday, my love. Here’s to more memories, more growth, and more beautiful moments together.</p>
+      <p>Every morning, I wake up thinking about the little things you do that make life brighter. Your smile, your laugh, your caring heart—they all remind me how lucky I am to have you. Even when we are apart, your presence lingers in my mind and comforts me in ways words cannot describe.</p>
+      <p>Through challenges and changes, you have shown resilience, compassion, and courage. I hope this birthday reminds you that every step you take is celebrated, every effort you make is noticed, and every moment you cherish is shared with me in spirit.</p>
+      <p>My wish for you today is simple yet profound: to feel loved in every heartbeat, to find joy in every moment, and to be reminded that you are treasured beyond measure. You are the melody to my heart, the warmth to my soul, and the love of my life.</p>
+      <p style="margin-top:20px;"><strong>With all my love,</strong><br/>Your always, Jane 🤍</p>
     </div>
   </div>
 
-  <!-- Other cards -->
+  <!-- Other message cards (unchanged) -->
   <div class="card">
     <h2>Why I Love You 💕</h2>
     <p>Click to reveal a secret.</p>
@@ -198,6 +203,7 @@
       </video>
     </div>
   </div>
+
 </section>
 
 <footer>
@@ -228,7 +234,7 @@
   setInterval(()=>{
     const heart=document.createElement('div');
     heart.className='heart';
-    heart.innerHTML=`<img src='https://em-content.zobj.net/thumbs/240/apple/354/red-heart_2764-fe0f.png' style='width:22px;height:22px;'>`;
+    heart.innerHTML='💖';
     heart.style.left=Math.random()*100+'vw';
     heart.style.animationDuration=6+Math.random()*6+'s';
     document.body.appendChild(heart);
@@ -238,28 +244,44 @@
   // Yes/No button interaction
   const noBtn = document.querySelector('.no-btn');
   const yesBtn = document.querySelector('.yes-btn');
-  const secretMsg = document.querySelector('.secret-msg');
   const cardsContainer = document.querySelector('.cards-container');
+  const questionCard = document.querySelector('.question-card');
+  const msgPopup = document.querySelector('.message-popup');
 
-  function moveNoButton() {
-    const parent = noBtn.parentElement;
-    const x = Math.random() * (parent.offsetWidth - noBtn.offsetWidth);
-    const y = Math.random() * (parent.offsetHeight - noBtn.offsetHeight - 30);
+  const noMessages = [
+    "NEE MAAAAAN!!!!!!! 😡😡😡😡",
+    "WHO YOU TRYNA BE WITH THEN???!!!!!!! 😡😡😡😡",
+    "REALLY BRUHHH!!!!!!! 😡😡😡😡",
+    "DINOOOOOOOOOOOOOO!!!!!!! 😡😡😡😡",
+    "Hmm… are you sure? U BREAKING MY HEART NOW.......💔",
+    "Come on… don't be shy HEHEHEHHEE 😡",
+    "Nope! Try again NO NO NO💔",
+    "I won't take no for an answer... DON'T DENY ME😡",
+    "Don't run from my love! 💔"
+  ];
+  let msgIndex = 0;
+
+  function handleNo() {
+    msgPopup.textContent = noMessages[msgIndex];
+
+    // Animate No button to move smoothly
+    const parentRect = questionCard.getBoundingClientRect();
+    const x = Math.random() * (parentRect.width - noBtn.offsetWidth);
+    const y = Math.random() * (parentRect.height - noBtn.offsetHeight - 30);
     noBtn.style.position = 'absolute';
     noBtn.style.left = x + 'px';
     noBtn.style.top = y + 'px';
+
+    msgIndex = (msgIndex + 1) % noMessages.length;
   }
 
-  noBtn.addEventListener('mouseover', moveNoButton);
-  noBtn.addEventListener('touchstart', moveNoButton);
+  noBtn.addEventListener('click', handleNo);
+  noBtn.addEventListener('touchstart', handleNo);
 
   yesBtn.addEventListener('click', () => {
-    secretMsg.style.display = 'block';
-    yesBtn.disabled = true;
-    noBtn.disabled = true;
     cardsContainer.style.display = 'grid';
+    questionCard.style.display = 'none';
   });
 </script>
-
 </body>
 </html>
