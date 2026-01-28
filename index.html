@@ -630,8 +630,25 @@
 
       // Pause all media when switching tabs
       pauseAllMedia();
+
     });
   });
+
+  function pauseAllMedia() {
+  // Pause and hide all videos
+  galleryVideos.forEach(video => {
+    if (!video.paused) video.pause();
+    video.style.display = 'none'; // hide video
+    const text = document.getElementById(video.id + 'Text'); // hide associated paragraph
+    if (text) text.style.display = 'none';
+  });
+
+  // Pause all audio
+  musicAudios.forEach(audio => {
+    if (!audio.paused) audio.pause();
+  });
+}
+
 
  const galleryVideos = [document.getElementById('loveVideo'), document.getElementById('happiVideo')];
 const musicAudios = Array.from(document.querySelectorAll('#music audio'));
